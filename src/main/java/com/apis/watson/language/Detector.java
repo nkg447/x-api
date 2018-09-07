@@ -1,6 +1,6 @@
 package com.apis.watson.language;
 
-import com.apis.watson.WatsonConfig;
+import com.apis.Config;
 import com.ibm.watson.developer_cloud.language_translator.v2.LanguageTranslator;
 import com.ibm.watson.developer_cloud.language_translator.v2.model.IdentifiedLanguage;
 import com.ibm.watson.developer_cloud.language_translator.v2.model.IdentifiedLanguages;
@@ -15,7 +15,7 @@ class Detector {
         LanguageTranslator service = new LanguageTranslator();
 
 //        create a AzureConfig.java file containing your username and password
-        service.setUsernameAndPassword(WatsonConfig.Language.USERNAME, WatsonConfig.Language.PASSWORD);
+        service.setUsernameAndPassword(Config.Watson.Language.USERNAME, Config.Watson.Language.PASSWORD);
 
         IdentifyOptions identifyOptions = new IdentifyOptions.Builder()
                 .text(text)

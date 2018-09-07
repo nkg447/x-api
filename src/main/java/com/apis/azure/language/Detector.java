@@ -1,6 +1,6 @@
 package com.apis.azure.language;
 
-import com.apis.azure.AzureConfig;
+import com.apis.Config;
 import com.google.gson.Gson;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
@@ -61,7 +61,7 @@ class Detector {
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Content-Type", "application/json");
         connection.setRequestProperty("Content-Length", content.length() + "");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", AzureConfig.Language.SUBSCRIPTION_KEY);
+        connection.setRequestProperty("Ocp-Apim-Subscription-Key", Config.Azure.Language.SUBSCRIPTION_KEY);
         connection.setRequestProperty("X-ClientTraceId", java.util.UUID.randomUUID().toString());
         connection.setDoOutput(true);
 

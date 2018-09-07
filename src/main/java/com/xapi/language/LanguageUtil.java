@@ -7,7 +7,7 @@ import org.json.simple.parser.ParseException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-public class Util {
+public class LanguageUtil {
 
     public static String getTestFromRequest(HttpServletRequest request) throws IOException, ParseException {
         String body = com.xapi.Util.getRequestBody(request);

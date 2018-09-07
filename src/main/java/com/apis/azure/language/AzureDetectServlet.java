@@ -1,7 +1,7 @@
-package com.apis.watson.language;
+package com.apis.azure.language;
 
-import com.ibm.watson.developer_cloud.language_translator.v2.model.IdentifiedLanguage;
-import com.xapi.language.Util;
+import com.xapi.language.LanguageUtil;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import javax.servlet.ServletException;
@@ -12,18 +12,24 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "DetectServlet")
-public class DetectServlet extends HttpServlet {
+public class AzureDetectServlet extends HttpServlet {
+
+    /*
+     * Handle the request and create the response
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            String text = Util.getTestFromRequest(request);
-            IdentifiedLanguage identifiedLanguage = Detector.detectLanguages(text);
+            String text = LanguageUtil.getTestFromRequest(request);
+            JSONArray detectedLanguage = Detector.Detect(text);
 
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
 
-            String jsonResponse = getJSONResponse(identifiedLanguage);
+            String jsonResponse = getJSONResponse(detectedLanguage);
+            System.out.println("AzureDetectServlet: response received");
             response.getWriter().println(jsonResponse);
-            System.out.println("DetectServlet: response sent");
+            System.out.println("AzureDetectServlet: response sent");
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -31,12 +37,14 @@ public class DetectServlet extends HttpServlet {
         }
     }
 
+
     /*
-     * creates a JSON response of the source language and the translation results
+     * creates a JSON response of the detected language
      */
-    private String getJSONResponse(IdentifiedLanguage identifiedLanguage) {
+    private String getJSONResponse(JSONArray languages) {
         JSONObject response = new JSONObject();
-        response.put("detectedLanguage",identifiedLanguage.getLanguage());
+        JSONObject language = (JSONObject) languages.get(0);
+        response.put("detectedLanguage", language.get("language"));
         return String.valueOf(response);
     }
 

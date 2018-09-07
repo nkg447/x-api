@@ -1,5 +1,8 @@
 package com.xapi.language;
 
+import com.apis.azure.language.AzureDetectServlet;
+import com.apis.watson.language.WatsonDetectServlet;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,13 +13,19 @@ import java.io.IOException;
 @WebServlet(name = "DetectServlet")
 public class DetectServlet extends HttpServlet {
 
-    static com.apis.watson.language.DetectServlet watsonDetectServlet=new com.apis.watson.language.DetectServlet();
+    static WatsonDetectServlet watsonDetectServlet = new WatsonDetectServlet();
+    static AzureDetectServlet azureDetectServlet = new AzureDetectServlet();
 
+    /*
+    * redirect request to corresponding API Vendor
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String api = request.getParameter("api");
-        System.out.println("DetectLanguage with "+api+" API");
-        if(api.equals("watson")){
-            watsonDetectServlet.doPost(request,response);
+        System.out.println("DetectLanguage with " + api + " API");
+        if (api.equals("watson")) {
+            watsonDetectServlet.doPost(request, response);
+        }else if(api.equals("azure")){
+            azureDetectServlet.doPost(request,response);
         }
     }
 

@@ -1,6 +1,7 @@
 package com.xapi.language;
 
 import com.apis.azure.language.AzureDetectServlet;
+import com.apis.google.language.GoogleDetectServlet;
 import com.apis.watson.language.WatsonDetectServlet;
 
 import javax.servlet.ServletException;
@@ -15,6 +16,7 @@ public class DetectServlet extends HttpServlet {
 
     static WatsonDetectServlet watsonDetectServlet = new WatsonDetectServlet();
     static AzureDetectServlet azureDetectServlet = new AzureDetectServlet();
+    static GoogleDetectServlet googleDetectServlet = new GoogleDetectServlet();
 
     /*
     * redirect request to corresponding API Vendor
@@ -26,6 +28,8 @@ public class DetectServlet extends HttpServlet {
             watsonDetectServlet.doPost(request, response);
         }else if(api.equals("azure")){
             azureDetectServlet.doPost(request,response);
+        }else{
+            googleDetectServlet.doPost(request,response);
         }
     }
 

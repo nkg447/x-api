@@ -1,5 +1,11 @@
 # Request and Response formats
 
+## Endpoint -
+```
+endpoint - "https://x-api.herokuapp.com"
+* add sub address written in brackets of APIs to the above endpoint to acess that API.
+```
+
 ## Language
 
 
@@ -23,8 +29,8 @@
 #### Request - 
 ```
 {
-    "from": "source language"
-    "text": "text who's language is to be translated"
+    "from": "source language",
+    "text": "text who's language is to be translated",
     "to": "target language"
 }
 ```

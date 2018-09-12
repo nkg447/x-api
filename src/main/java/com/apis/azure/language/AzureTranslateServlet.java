@@ -40,6 +40,6 @@ public class AzureTranslateServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Only POST request are accepted.");
     }
 }

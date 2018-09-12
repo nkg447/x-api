@@ -1,5 +1,6 @@
 package com.xapi.language;
 
+import com.apis.azure.language.AzureTranslateServlet;
 import com.apis.watson.language.WatsonTranslateServlet;
 
 import javax.servlet.ServletException;
@@ -12,7 +13,8 @@ import java.io.IOException;
 @WebServlet(name = "TranslateServlet")
 public class TranslateServlet extends HttpServlet {
 
-    static WatsonTranslateServlet watsonTranslateServlet=new WatsonTranslateServlet();
+    static private WatsonTranslateServlet watsonTranslateServlet = new WatsonTranslateServlet();
+    static private AzureTranslateServlet azureTranslateServlet = new AzureTranslateServlet();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String api = request.getParameter("api");
@@ -20,9 +22,12 @@ public class TranslateServlet extends HttpServlet {
         if (api.equals("watson")) {
             watsonTranslateServlet.doPost(request, response);
         }
+        else if(api.equals("azure")){
+            azureTranslateServlet.doPost(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Only POST request are accepted.");
     }
 }

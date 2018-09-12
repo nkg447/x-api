@@ -1,20 +1,19 @@
 package com.xapi;
 
+import com.google.common.io.CharStreams;
+
 import javax.servlet.http.HttpServletRequest;
-import java.io.BufferedReader;
 import java.io.IOException;
 
 public class Util {
+    /*
+    * extract the request body from the request in utf-8
+     */
     public static String getRequestBody(HttpServletRequest request) throws IOException {
-        BufferedReader br = request.getReader();
-
-        String body = "";
-        String temp;
-        while ((temp = br.readLine()) != null) {
-            body += temp;
-        }
-        return body;
+        request.setCharacterEncoding("UTF-8");
+        return CharStreams.toString(request.getReader());
     }
+
     public static String toSentence(String str) {
         str = str.trim();
         if (!str.endsWith(".")) {

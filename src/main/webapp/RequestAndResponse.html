@@ -1,0 +1,34 @@
+<style>
+    pre{
+        background-color: lightgray;
+        padding: 20px;
+    }
+</style>
+<h1 id="request-and-response-formats">Request and Response formats</h1>
+<h2 id="endpoint-">Endpoint -</h2>
+<pre><code>endpoint - <span class="hljs-string">"https://x-api.herokuapp.com"</span>
+* add sub address written <span class="hljs-keyword">in</span> brackets <span class="hljs-keyword">of</span> APIs <span
+            class="hljs-keyword">to</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">above</span> endpoint <span
+            class="hljs-keyword">to</span> acess <span class="hljs-keyword">that</span> API.
+</code></pre><h2 id="language">Language</h2>
+<h3 id="detect-language-detectlanguage-">Detect Language (&quot;/detectLanguage&quot;)</h3>
+<h4 id="request-">Request -</h4>
+<pre><code>{
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"text who's language is to be detected"</span>
+}
+</code></pre><h4 id="response-">Response -</h4>
+<pre><code>{
+    <span class="hljs-attr">"detectedLanguage"</span>: <span class="hljs-string">"en"</span>
+}
+</code></pre><h3 id="translate-language-translate-">Translate Language (&quot;/translate&quot;)</h3>
+<h4 id="request-">Request -</h4>
+<pre><code>{
+    <span class="hljs-attr">"from"</span>: <span class="hljs-string">"source language"</span>,
+    <span class="hljs-attr">"text"</span>: <span class="hljs-string">"text who's language is to be translated"</span>,
+    <span class="hljs-attr">"to"</span>: <span class="hljs-string">"target language"</span>
+}
+</code></pre><h4 id="response-">Response -</h4>
+<pre><code>{
+    <span class="hljs-attr">"translatedText"</span>: <span class="hljs-string">"text after translation"</span>
+}
+</code></pre>

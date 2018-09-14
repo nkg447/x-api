@@ -6,7 +6,7 @@ import org.json.simple.JSONObject;
 
 import java.net.URL;
 
-public class Translator {
+class Translator {
 
     // endpoint and path to access the API
     static private final String host = "https://api.cognitive.microsofttranslator.com";

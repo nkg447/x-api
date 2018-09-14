@@ -1,6 +1,7 @@
 package com.xapi.language;
 
 import com.apis.azure.language.AzureTranslateServlet;
+import com.apis.google.language.GoogleTranslateServlet;
 import com.apis.watson.language.WatsonTranslateServlet;
 
 import javax.servlet.ServletException;
@@ -15,7 +16,12 @@ public class TranslateServlet extends HttpServlet {
 
     static private WatsonTranslateServlet watsonTranslateServlet = new WatsonTranslateServlet();
     static private AzureTranslateServlet azureTranslateServlet = new AzureTranslateServlet();
+    static private GoogleTranslateServlet googleTranslateServlet=new GoogleTranslateServlet();
 
+    /*
+     * redirect request to corresponding API Vendor
+     */
+    @SuppressWarnings("Duplicates")
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String api = request.getParameter("api");
         System.out.println("TranslateLanguage with " + api + " API");
@@ -24,6 +30,9 @@ public class TranslateServlet extends HttpServlet {
         }
         else if(api.equals("azure")){
             azureTranslateServlet.doPost(request, response);
+        }
+        else{
+            googleTranslateServlet.doPost(request, response);
         }
     }
 

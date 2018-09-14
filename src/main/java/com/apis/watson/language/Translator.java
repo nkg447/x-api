@@ -6,7 +6,7 @@ import com.ibm.watson.developer_cloud.language_translator.v2.model.TranslationRe
 import com.ibm.watson.developer_cloud.language_translator.v2.LanguageTranslator;
 import com.xapi.language.TranslationRequestBody;
 
-public class Translator {
+class Translator {
 
     /*
     * Translating text using the Watson API

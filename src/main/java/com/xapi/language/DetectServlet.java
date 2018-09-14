@@ -21,6 +21,7 @@ public class DetectServlet extends HttpServlet {
     /*
     * redirect request to corresponding API Vendor
      */
+    @SuppressWarnings("Duplicates")
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String api = request.getParameter("api");
         System.out.println("DetectLanguage with " + api + " API");

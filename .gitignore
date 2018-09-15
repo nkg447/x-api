@@ -1,2 +1,4 @@
 src/main/java/com/apis/Config.java
 src/main/res/client_secret.json
+target/
+

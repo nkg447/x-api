@@ -40,3 +40,28 @@ endpoint - "https://x-api.herokuapp.com"
     "translatedText": "text after translation"
 }
 ```
+
+### Supported Languages ("/languages")
+
+#### Request - 
+```
+GET / POST request to  -  "/languages" path
+```
+#### Response - 
+```
+{
+    languages: [
+        {
+            name: "language name",
+            code: "language code"
+        },
+        {
+            name: "language name",
+            code: "language code"
+        },
+        .
+        .
+        .
+    ]
+}
+```

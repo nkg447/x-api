@@ -19,4 +19,13 @@
         <url-pattern>/translate</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Languages</servlet-name>
+        <servlet-class>com.xapi.language.LanguagesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Languages</servlet-name>
+        <url-pattern>/languages</url-pattern>
+    </servlet-mapping>
+
 </web-app>

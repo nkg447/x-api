@@ -1,6 +1,7 @@
 package com.xapi.language;
 
 import com.apis.google.language.GoogleLanguagesServlet;
+import com.apis.watson.language.WatsonLanguagesServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,10 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "LanguagesServlet")
+@WebServlet(name = "WatsonLanguagesServlet")
 public class LanguagesServlet extends HttpServlet {
 
     static private GoogleLanguagesServlet googleLanguagesServlet=new GoogleLanguagesServlet();
+    static private WatsonLanguagesServlet watsonLanguagesServlet=new WatsonLanguagesServlet();
 
     /*
      * redirect request to corresponding API Vendor
@@ -20,9 +22,12 @@ public class LanguagesServlet extends HttpServlet {
     @SuppressWarnings("Duplicates")
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String api = request.getParameter("api");
-        System.out.println("TranslateLanguage with " + api + " API");
+        System.out.println("Languages supported by " + api + " API");
         if (api.equals("google")) {
             googleLanguagesServlet.doPost(request, response);
+        }
+        else if(api.equals("watson")){
+            watsonLanguagesServlet.doPost(request,response);
         }
     }
 

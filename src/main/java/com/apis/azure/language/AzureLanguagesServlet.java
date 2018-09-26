@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 @WebServlet(name = "AzureLanguagesServlet")
 public class AzureLanguagesServlet extends HttpServlet {
@@ -37,6 +39,7 @@ public class AzureLanguagesServlet extends HttpServlet {
 
         JSONObject language;
         JSONArray langs = new JSONArray();
+        Set<String> langCodes = new HashSet<>();
 
         for(Object object : languages.keySet()) {
             JSONObject jsonObject = (JSONObject) languages.get((String)object);
@@ -44,6 +47,10 @@ public class AzureLanguagesServlet extends HttpServlet {
             for(Object key : jsonObject.keySet()){
                 String keyStr = (String) key;
 
+                if(langCodes.contains(keyStr)){
+                    continue;
+                }
+                langCodes.add(keyStr);
                 language=new JSONObject();
                 language.put("code", keyStr);
                 language.put("name", ((JSONObject)jsonObject.get(keyStr)).get("name"));

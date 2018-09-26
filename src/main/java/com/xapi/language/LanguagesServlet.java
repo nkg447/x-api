@@ -1,5 +1,6 @@
 package com.xapi.language;
 
+import com.apis.azure.language.AzureLanguagesServlet;
 import com.apis.google.language.GoogleLanguagesServlet;
 import com.apis.watson.language.WatsonLanguagesServlet;
 
@@ -10,11 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "WatsonLanguagesServlet")
+@WebServlet(name = "LanguagesServlet")
 public class LanguagesServlet extends HttpServlet {
 
     static private GoogleLanguagesServlet googleLanguagesServlet=new GoogleLanguagesServlet();
     static private WatsonLanguagesServlet watsonLanguagesServlet=new WatsonLanguagesServlet();
+    static private AzureLanguagesServlet azureLanguagesServlet=new AzureLanguagesServlet();
 
     /*
      * redirect request to corresponding API Vendor
@@ -28,6 +30,9 @@ public class LanguagesServlet extends HttpServlet {
         }
         else if(api.equals("watson")){
             watsonLanguagesServlet.doPost(request,response);
+        }
+        else{
+            azureLanguagesServlet.doPost(request,response);
         }
     }
 

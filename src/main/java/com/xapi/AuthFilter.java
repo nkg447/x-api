@@ -13,9 +13,16 @@ public class AuthFilter implements Filter {
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
         System.out.println("authenticating");
-        if(req.getParameter("api_key").equals(api_key)){
-            System.out.println("authenticated");
-            chain.doFilter(req, resp);
+        try{
+            if(req.getParameter("api_key").equals(api_key)){
+                System.out.println("authenticated");
+                chain.doFilter(req, resp);
+            }
+            else{
+                resp.getWriter().write("api_key invalid");
+            }
+        }catch(NullPointerException e){
+            resp.getWriter().write("no api_key found");
         }
 
     }

@@ -1,6 +1,16 @@
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
 
+    <filter>
+        <filter-name>auth</filter-name>
+        <filter-class>com.xapi.AuthFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>auth</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>DetectLanguage</servlet-name>
         <servlet-class>com.xapi.language.DetectServlet</servlet-class>

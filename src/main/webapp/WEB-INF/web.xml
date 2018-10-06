@@ -38,4 +38,13 @@
         <url-pattern>/languages</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-class>com.xapi.vision.FaceDetectServlet</servlet-class>
+        <servlet-name>FaceDetect</servlet-name>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FaceDetect</servlet-name>
+        <url-pattern>/faceDetect</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -65,3 +65,34 @@ GET / POST request to  -  "/languages" path
     ]
 }
 ```
+
+## Vision
+
+
+### Face Detect ("/faceDetect")
+
+#### Request - 
+```
+{
+  "url": "url to the image"
+}
+```
+#### Response - 
+```
+{
+    "faces": [
+        {
+            "face_location": {
+                "width": 56.0,
+                "height": 66.0,
+                "left": 214.0,
+                "top": 87.0
+            }
+        },
+        .
+        .
+        .
+        
+    ]
+}
+```

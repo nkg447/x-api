@@ -18,7 +18,7 @@ import org.json.simple.parser.ParseException;
 
 public class FaceDetect {
     private static final String uriBase =
-            "https://westus.api.cognitive.microsoft.com/face/v1.0/detect";
+            "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
 
     static JSONArray faceDetect(String url) throws URISyntaxException, IOException, ParseException {
         String imageWithFaces = "{\"url\": \"" + url + "\"}";
@@ -42,7 +42,6 @@ public class FaceDetect {
         HttpResponse response = httpclient.execute(request);
         HttpEntity entity = response.getEntity();
         String jsonString = EntityUtils.toString(entity).trim();
-
         return (JSONArray) (new org.json.simple.parser.JSONParser().parse(jsonString));
     }
 }

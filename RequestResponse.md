@@ -66,6 +66,24 @@ GET / POST request to  -  "/languages" path
 }
 ```
 
+## Speech
+
+
+### Text to Speech ("/tts")
+
+#### Request - 
+```
+{
+  "text": "text whos speech is to be created"
+}
+```
+#### Response - 
+```
+{
+}
+data - a stream of audio
+```
+
 ## Vision
 
 

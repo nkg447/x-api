@@ -47,4 +47,13 @@
         <url-pattern>/faceDetect</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-class>com.xapi.speech.SynthesizeServlet</servlet-class>
+        <servlet-name>SynthesizeServlet</servlet-name>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SynthesizeServlet</servlet-name>
+        <url-pattern>/tts</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -1,6 +1,6 @@
 package com.apis.watson.language;
 
-import com.ibm.watson.developer_cloud.language_translator.v2.model.TranslationResult;
+import com.ibm.watson.developer_cloud.language_translator.v3.model.TranslationResult;
 import com.xapi.language.LanguageUtil;
 import com.xapi.language.TranslationRequestBody;
 import org.json.simple.JSONObject;
@@ -19,7 +19,7 @@ public class WatsonTranslateServlet extends HttpServlet {
      */
     static String getJSONResponse(TranslationResult translationResult) {
         JSONObject response = new JSONObject();
-        response.put("translatedText",translationResult.getTranslations().get(0).getTranslation());
+        response.put("translatedText",translationResult.getTranslations().get(0).getTranslationOutput());
         return String.valueOf(response);
     }
 

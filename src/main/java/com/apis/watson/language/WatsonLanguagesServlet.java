@@ -1,7 +1,7 @@
 package com.apis.watson.language;
 
-import com.ibm.watson.developer_cloud.language_translator.v2.model.IdentifiableLanguage;
-import com.ibm.watson.developer_cloud.language_translator.v2.model.IdentifiableLanguages;
+import com.ibm.watson.developer_cloud.language_translator.v3.model.IdentifiableLanguage;
+import com.ibm.watson.developer_cloud.language_translator.v3.model.IdentifiableLanguages;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 

@@ -1,10 +1,10 @@
 package com.apis.watson.language;
 
 import com.apis.Config;
-import com.ibm.watson.developer_cloud.language_translator.v2.LanguageTranslator;
-import com.ibm.watson.developer_cloud.language_translator.v2.model.IdentifiedLanguage;
-import com.ibm.watson.developer_cloud.language_translator.v2.model.IdentifiedLanguages;
-import com.ibm.watson.developer_cloud.language_translator.v2.model.IdentifyOptions;
+import com.ibm.watson.developer_cloud.language_translator.v3.LanguageTranslator;
+import com.ibm.watson.developer_cloud.language_translator.v3.model.IdentifiedLanguage;
+import com.ibm.watson.developer_cloud.language_translator.v3.model.IdentifiedLanguages;
+import com.ibm.watson.developer_cloud.language_translator.v3.model.IdentifyOptions;
 
 class Detector {
 
@@ -12,7 +12,7 @@ class Detector {
      * detect language using the watson SDK
      */
     static IdentifiedLanguage detectLanguages(String text) {
-        LanguageTranslator service = new LanguageTranslator();
+        LanguageTranslator service = new LanguageTranslator("2018-05-01");
 
 //        create a AzureConfig.java file containing your username and password
         service.setUsernameAndPassword(Config.Watson.Language.USERNAME, Config.Watson.Language.PASSWORD);

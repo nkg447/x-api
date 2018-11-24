@@ -1,6 +1,6 @@
 package com.apis.watson.language;
 
-import com.ibm.watson.developer_cloud.language_translator.v2.model.IdentifiedLanguage;
+import com.ibm.watson.developer_cloud.language_translator.v3.model.IdentifiedLanguage;
 import com.xapi.language.LanguageUtil;
 import org.json.simple.JSONObject;
 

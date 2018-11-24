@@ -10,8 +10,8 @@ public class Synthesize {
 
     static String subscriptionKey = Config.Azure.Speech.SUBSCRIPTION_KEY;
 
-    static String url = "https://westus.tts.speech.microsoft.com/cognitiveservices/v1";
-    //static String url = "https://azuretowatson.herokuapp.com/synthesize";
+//    static String url = "https://westus.tts.speech.microsoft.com/cognitiveservices/v1";
+    static String url = "https://azuretowatson.herokuapp.com/synthesize";
 
     static String getBody(String text, String lang) {
         String body = "<speak version='1.0' xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang='" + lang + "'>\n" +
@@ -36,16 +36,6 @@ public class Synthesize {
         wr.write(encoded_content, 0, encoded_content.length);
         wr.flush();
         wr.close();
-
-        StringBuilder response = new StringBuilder();
-        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
-        String line;
-        while ((line = in.readLine()) != null) {
-            response.append(line);
-        }
-        in.close();
-
-        System.out.println(response.toString());
 
         return connection.getInputStream();
     }

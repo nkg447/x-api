@@ -74,7 +74,7 @@ GET / POST request to  -  "/languages" path
 #### Request - 
 ```
 {
-  "text": "text whos speech is to be created"
+  "text": "text whos speech is to be created",
 }
 ```
 #### Response - 
@@ -83,6 +83,21 @@ GET / POST request to  -  "/languages" path
 }
 data - a stream of audio
 ```
+
+### Speech to Text ("/stt")
+
+#### Request - 
+```
+data - stream of audio
+```
+#### Response - 
+```
+{
+    "transcript": "text to the audio",
+    "confidence": 1.0 // if confidence provided by vendor
+}
+```
+
 
 ## Vision
 

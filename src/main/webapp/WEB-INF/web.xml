@@ -56,4 +56,13 @@
         <url-pattern>/tts</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-class>com.xapi.speech.RecognizeServlet</servlet-class>
+        <servlet-name>RecognizeServlet</servlet-name>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RecognizeServlet</servlet-name>
+        <url-pattern>/stt</url-pattern>
+    </servlet-mapping>
+
 </web-app>

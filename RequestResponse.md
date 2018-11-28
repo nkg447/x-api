@@ -115,12 +115,10 @@ data - stream of audio
 {
     "faces": [
         {
-            "face_location": {
-                "width": 56.0,
-                "height": 66.0,
-                "left": 214.0,
-                "top": 87.0
-            }
+            "width": 56.0,
+            "height": 66.0,
+            "left": 214.0,
+            "top": 87.0
         },
         .
         .

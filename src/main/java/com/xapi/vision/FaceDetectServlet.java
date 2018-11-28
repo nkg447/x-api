@@ -1,6 +1,7 @@
 package com.xapi.vision;
 
 import com.apis.azure.vision.AzureFaceDetectServlet;
+import com.apis.google.vision.GoogleFaceDetectServlet;
 import com.apis.watson.vision.WatsonFaceDetectServlet;
 
 import javax.servlet.ServletException;
@@ -15,6 +16,7 @@ public class FaceDetectServlet extends HttpServlet {
 
     static WatsonFaceDetectServlet watsonFaceDetectServlet = new WatsonFaceDetectServlet();
     static AzureFaceDetectServlet azureFaceDetectServlet = new AzureFaceDetectServlet();
+    static GoogleFaceDetectServlet googleFaceDetectServlet=new GoogleFaceDetectServlet();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String api = request.getParameter("api");
@@ -23,6 +25,8 @@ public class FaceDetectServlet extends HttpServlet {
             watsonFaceDetectServlet.doPost(request, response);
         } else if (api.equals("azure")) {
             azureFaceDetectServlet.doPost(request, response);
+        }else{
+            googleFaceDetectServlet.doPost(request, response);
         }
     }
 

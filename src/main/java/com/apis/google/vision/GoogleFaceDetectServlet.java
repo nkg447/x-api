@@ -37,15 +37,13 @@ public class GoogleFaceDetectServlet extends HttpServlet {
         System.out.println("det fec - "+ detectedFaces.toString());
 
         JSONObject faceAnnotation = (JSONObject) ((JSONArray) detectedFaces.get("responses")).get(0);
-        System.out.println("fec anot - "+ faceAnnotation.toString());
+
         for(Object faceObj : (JSONArray)faceAnnotation.get("faceAnnotations")){
             JSONObject face = ((JSONObject) ((JSONObject) faceObj).get("fdBoundingPoly"));
             JSONObject facePositionStart = (JSONObject) ((JSONArray)face.get("vertices")).get(0);
             JSONObject facePositionEnd = (JSONObject) ((JSONArray)face.get("vertices")).get(2);
 
             JSONObject face_location=new JSONObject();
-
-            System.out.println("fface  -"+face.toString());
 
             long faceWidth = (long)facePositionEnd.get("x") - (long)facePositionStart.get("x");
             long faceHeight = (long)facePositionEnd.get("y") - (long)facePositionStart.get("y");

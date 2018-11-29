@@ -1,6 +1,7 @@
 package com.xapi.speech;
 
 import com.apis.azure.speech.AzureSynthesizeServlet;
+import com.apis.google.speech.GoogleSynthesizeServlet;
 import com.apis.watson.speech.WatsonSynthesizeServlet;
 
 import javax.servlet.ServletException;
@@ -15,6 +16,7 @@ public class SynthesizeServlet extends HttpServlet {
 
     static private WatsonSynthesizeServlet watsonSynthesizeServlet = new WatsonSynthesizeServlet();
     static private AzureSynthesizeServlet azureSynthesizeServlet = new AzureSynthesizeServlet();
+    static private GoogleSynthesizeServlet googleSynthesizeServlet = new GoogleSynthesizeServlet();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String api = request.getParameter("api");
@@ -24,6 +26,8 @@ public class SynthesizeServlet extends HttpServlet {
             watsonSynthesizeServlet.doPost(request, response);
         } else if (api.equals("azure")) {
             azureSynthesizeServlet.doPost(request, response);
+        }else{
+            googleSynthesizeServlet.doPost(request, response);
         }
     }
 

@@ -37,7 +37,6 @@ public class FaceDetect {
                 .post(body)
                 .addHeader("Content-Type", "application/json")
                 .addHeader("Cache-Control", "no-cache")
-                .addHeader("Postman-Token", "0db06089-9c6a-49e9-8fd6-4de868a47650")
                 .build();
 
         Response response = client.newCall(request).execute();

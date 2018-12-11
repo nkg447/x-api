@@ -1,5 +1,6 @@
 package com.xapi.speech;
 
+import com.apis.azure.speech.AzureRecognizeServlet;
 import com.apis.watson.speech.WatsonRecognizeServlet;
 
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import java.io.IOException;
 public class RecognizeServlet extends HttpServlet {
 
     static WatsonRecognizeServlet watsonRecognizeServlet = new WatsonRecognizeServlet();
+    static AzureRecognizeServlet azureRecognizeServlet = new AzureRecognizeServlet();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String api = request.getParameter("api");
@@ -20,6 +22,8 @@ public class RecognizeServlet extends HttpServlet {
 
         if (api.equals("watson")) {
             watsonRecognizeServlet.doPost(request, response);
+        } else if (api.equals("azure")) {
+            azureRecognizeServlet.doPost(request, response);
         }
     }
 

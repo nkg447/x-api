@@ -7,7 +7,7 @@ import java.io.IOException;
 @WebFilter(filterName = "AuthFilter")
 public class AuthFilter implements Filter {
 
-    static String api_key = "api key here";
+    static String api_key = "qwerty";
     public void destroy() {
     }
 

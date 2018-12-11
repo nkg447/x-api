@@ -14,7 +14,8 @@ import java.net.URL;
 public class Recognize {
 
     static String subscriptionKey = Config.Azure.Speech.SUBSCRIPTION_KEY;
-    static String url = "https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed";
+    static String url =
+            "https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed";
 
 
     public static String Post(URL url, InputStream audioStream) throws Exception {
